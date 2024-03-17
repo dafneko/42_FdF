@@ -6,7 +6,7 @@
 /*   By: dkoca <dkoca@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:54:59 by dkoca             #+#    #+#             */
-/*   Updated: 2024/03/17 19:17:10 by dkoca            ###   ########.fr       */
+/*   Updated: 2024/03/17 23:58:24 by dkoca            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	close_mlx(t_fdf *fdf)
 		mlx_destroy_image(fdf->mlx_ptr, fdf->menu);
 	if (fdf->window)
 		mlx_destroy_window(fdf->mlx_ptr, fdf->window);
-	mlx_destroy_display(fdf->mlx_ptr);
+	if (fdf->mlx_ptr)
+		mlx_destroy_display(fdf->mlx_ptr);
 	free_fdf(fdf);
 	exit(EXIT_SUCCESS);
 }

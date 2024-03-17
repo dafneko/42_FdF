@@ -6,7 +6,7 @@
 /*   By: dkoca <dkoca@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:23:08 by dkoca             #+#    #+#             */
-/*   Updated: 2024/03/17 18:07:38 by dkoca            ###   ########.fr       */
+/*   Updated: 2024/03/17 23:42:13 by dkoca            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ void	read_map(int fd, t_fdf *fdf)
 			++i;
 		fdf->map->width = i;
 		if (fdf->map->width != i && fdf->map->height == 1)
-			(error_handler(MAP_ERROR), close_mlx(fdf), exit(0));
+			(error_handler(MAP_ERROR), close_mlx(fdf));
 		fdf->matrix[line_count] = malloc(sizeof(t_point) * i);
 		if (!fdf->matrix[line_count])
-			(error_handler(ENOMEM), close_mlx(fdf), exit(0));
+			(error_handler(ENOMEM), close_mlx(fdf));
 		get_values(split_line, fdf, line_count);
 		free_array(split_line);
 		line_count++;
@@ -106,7 +106,7 @@ int	parse_map(char *file, t_fdf *fdf)
 	i = 0;
 	fd = open(file, O_RDONLY);
 	if (fd < 0 || BUFFER_SIZE < 1)
-		(error_handler(MAP_ERROR), close_mlx(fdf), exit(0));
+		(error_handler(MAP_ERROR), close_mlx(fdf));
 	fdf->map = malloc(sizeof(t_map));
 	if (!fdf->map)
 		return (-1);
@@ -114,9 +114,11 @@ int	parse_map(char *file, t_fdf *fdf)
 	fdf->map->width = 0;
 	fdf->map->depth = 0;
 	get_map_height(file, &fdf->map->height);
+	if (fdf->map->height == 0)
+		(error_handler(MAP_ERROR), close_mlx(fdf));
 	fdf->matrix = (t_point **)malloc(sizeof(t_point *) * fdf->map->height);
 	if (!fdf->matrix)
-		(error_handler(ENOMEM), close_mlx(fdf), exit(0));
+		(error_handler(ENOMEM), close_mlx(fdf));
 	read_map(fd, fdf);
 	close(fd);
 	return (EXIT_SUCCESS);

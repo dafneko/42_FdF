@@ -6,7 +6,7 @@
 /*   By: dkoca <dkoca@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 00:42:53 by dkoca             #+#    #+#             */
-/*   Updated: 2024/03/17 19:44:02 by dkoca            ###   ########.fr       */
+/*   Updated: 2024/03/18 00:07:30 by dkoca            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ typedef struct s_fdf
 
 /*fdf.c*/
 int				main(int ac, char **av);
-t_fdf			*fdf_init(char *file, t_fdf *fdf);
+t_fdf			*fdf_init(t_fdf *fdf);
 int				menu_init(t_fdf *fdf);
 int				img_init(t_fdf *fdf);
 
@@ -138,7 +138,9 @@ void			rotate(int key, t_fdf *fdf);
 
 /*errors*/
 void			error_handler(int err);
+int				check_fd(char *file);
 char			*handle_color(char *color);
+
 /*menu*/
 void			set_menu(t_fdf *fdf);
 void			menu_info(t_fdf *fdf);

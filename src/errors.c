@@ -6,7 +6,7 @@
 /*   By: dkoca <dkoca@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 00:45:46 by dkoca             #+#    #+#             */
-/*   Updated: 2024/03/17 00:34:04 by dkoca            ###   ########.fr       */
+/*   Updated: 2024/03/18 00:00:19 by dkoca            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	error_handler(int err)
 		ft_putendl_fd("No memory left.", 2);
 	else if (err == SIZE_ERROR)
 		ft_putendl_fd("Map has no height or width.", 2);
-	exit(EXIT_FAILURE);
 }
 
 char	*handle_color(char *color)
@@ -38,4 +37,13 @@ char	*handle_color(char *color)
 			*tmp -= 32;
 	}
 	return (color + 3);
+}
+
+int	check_fd(char *file)
+{
+	if (!file)
+		return (-1);
+	if (!ft_strchr(file, '.'))
+		return (-1);
+	return (0);
 }

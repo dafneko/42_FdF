@@ -6,7 +6,7 @@
 /*   By: dkoca <dkoca@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 05:42:48 by dkoca             #+#    #+#             */
-/*   Updated: 2024/03/17 19:37:58 by dkoca            ###   ########.fr       */
+/*   Updated: 2024/03/17 22:01:04 by dkoca            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ int	cam_init(t_fdf *fdf)
 {
 	fdf->cam = malloc(sizeof(t_cam));
 	if (!fdf->cam)
-		(error_handler(ENOMEM), close_mlx(fdf), exit(0));
+		(error_handler(ENOMEM), close_mlx(fdf));
 	fdf->cam->projection = ISOMETRIC;
 	fdf->right_click = malloc(sizeof(t_mouse));
 	if (!fdf->right_click)
-		(error_handler(ENOMEM), close_mlx(fdf), exit(0));
+		(error_handler(ENOMEM), close_mlx(fdf));
 	fdf->right_click->axis = malloc(sizeof(t_point));
 	if (!fdf->right_click->axis)
-		(error_handler(ENOMEM), close_mlx(fdf), exit(0));
+		(error_handler(ENOMEM), close_mlx(fdf));
 	fdf->right_click->click = 0;
 	return (EXIT_SUCCESS);
 }
