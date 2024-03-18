@@ -6,37 +6,11 @@
 /*   By: dkoca <dkoca@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:23:08 by dkoca             #+#    #+#             */
-/*   Updated: 2024/03/17 23:42:13 by dkoca            ###   ########.fr       */
+/*   Updated: 2024/03/19 00:17:08 by dkoca            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-int	get_map_height(char *file, int *row)
-{
-	int		fd;
-	int		bytesread;
-	int		size;
-	char	buf[BUFFER_SIZE + 1];
-	int		i;
-
-	fd = open(file, O_RDONLY);
-	size = 0;
-	bytesread = 1;
-	while (bytesread > 0)
-	{
-		bytesread = read(fd, buf, BUFFER_SIZE);
-		if (bytesread == -1)
-			return (-1);
-		i = -1;
-		while (++i < bytesread)
-			if (buf[i] == '\n')
-				(*row)++;
-		size += bytesread;
-	}
-	close(fd);
-	return (size);
-}
 
 int	fill_matrix(t_fdf *fdf, int y, int x)
 {
@@ -80,21 +54,17 @@ void	read_map(int fd, t_fdf *fdf)
 	line = get_next_line(fd);
 	while (line)
 	{
-		split_line = ft_split(line, ' ');
-		free(line);
-		i = 0;
-		while (split_line[i])
-			++i;
-		fdf->map->width = i;
-		if (fdf->map->width != i && fdf->map->height == 1)
-			(error_handler(MAP_ERROR), close_mlx(fdf));
-		fdf->matrix[line_count] = malloc(sizeof(t_point) * i);
+		split_line = get_width(&i, &line, fdf);
+		fdf->matrix[line_count] = ft_calloc(i, sizeof(t_point));
 		if (!fdf->matrix[line_count])
 			(error_handler(ENOMEM), close_mlx(fdf));
 		get_values(split_line, fdf, line_count);
 		free_array(split_line);
 		line_count++;
-		line = get_next_line(fd);
+		if (line_count < fdf->map->height)
+			line = get_next_line(fd);
+		else
+			clean_gnl(line, fd);
 	}
 }
 
@@ -109,14 +79,15 @@ int	parse_map(char *file, t_fdf *fdf)
 		(error_handler(MAP_ERROR), close_mlx(fdf));
 	fdf->map = malloc(sizeof(t_map));
 	if (!fdf->map)
-		return (-1);
+		(error_handler(ENOMEM), close_mlx(fdf));
 	fdf->map->height = 0;
 	fdf->map->width = 0;
 	fdf->map->depth = 0;
-	get_map_height(file, &fdf->map->height);
+	if (get_map_height(file, &fdf->map->height) == -1)
+		(error_handler(MAP_ERROR), close_mlx(fdf));
 	if (fdf->map->height == 0)
 		(error_handler(MAP_ERROR), close_mlx(fdf));
-	fdf->matrix = (t_point **)malloc(sizeof(t_point *) * fdf->map->height);
+	fdf->matrix = (t_point **)ft_calloc(fdf->map->height, sizeof(t_point *));
 	if (!fdf->matrix)
 		(error_handler(ENOMEM), close_mlx(fdf));
 	read_map(fd, fdf);

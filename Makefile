@@ -6,14 +6,14 @@
 #    By: dkoca <dkoca@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/12 01:06:15 by dkoca             #+#    #+#              #
-#    Updated: 2024/03/08 04:57:02 by dkoca            ###   ########.fr        #
+#    Updated: 2024/03/19 00:15:09 by dkoca            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := fdf
 
 SRCDIR := src
-_SRC := fdf.c hooks.c map.c bresenham.c free.c draw.c transform.c errors.c menu.c camera.c mousehook.c
+_SRC := fdf.c hooks.c map.c bresenham.c free.c draw.c transform.c errors.c menu.c camera.c mousehook.c parse.c
 SRC := $(addprefix $(SRCDIR)/, $(_SRC))
 
 OBJDIR := obj

@@ -6,7 +6,7 @@
 /*   By: dkoca <dkoca@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 04:33:13 by dkoca             #+#    #+#             */
-/*   Updated: 2024/03/17 00:23:30 by dkoca            ###   ########.fr       */
+/*   Updated: 2024/03/18 19:50:16 by dkoca            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	free_fdf(t_fdf *fdf)
 		free(fdf->menu_data);
 	if (fdf->img)
 		free(fdf->img_data);
+	if (fdf->path)
+		free(fdf->path);
 	free(fdf->mlx_ptr);
 	free(fdf);
 	return (EXIT_SUCCESS);

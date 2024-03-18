@@ -6,7 +6,7 @@
 /*   By: dkoca <dkoca@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 00:45:46 by dkoca             #+#    #+#             */
-/*   Updated: 2024/03/18 00:00:19 by dkoca            ###   ########.fr       */
+/*   Updated: 2024/03/18 23:33:48 by dkoca            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,27 @@ char	*handle_color(char *color)
 	return (color + 3);
 }
 
-int	check_fd(char *file)
+int	check_fd(char *file, t_fdf *fdf)
 {
 	if (!file)
+	{
+		free(file);
 		return (-1);
-	if (!ft_strchr(file, '.'))
+	}
+	fdf->path = ft_strjoin("./test_maps/", file);
+	if (!fdf->path)
+		return (-1);
+	if (!ft_strchr(fdf->path + 11, '.'))
 		return (-1);
 	return (0);
+}
+
+void	clean_gnl(char *line, int fd)
+{
+	line = get_next_line(fd);
+	while (line)
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
 }

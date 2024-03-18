@@ -6,7 +6,7 @@
 /*   By: dkoca <dkoca@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 00:42:53 by dkoca             #+#    #+#             */
-/*   Updated: 2024/03/18 00:07:30 by dkoca            ###   ########.fr       */
+/*   Updated: 2024/03/19 00:15:46 by dkoca            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct s_fdf
 	t_cam		*cam;
 	t_mouse		*right_click;
 	int			len;
+	char		*path;
 }				t_fdf;
 
 /*fdf.c*/
@@ -108,11 +109,14 @@ t_point			*get_plot(t_point *p1, t_point *p2);
 void			get_next_pix(t_point *current_pix, t_point *delta,
 					t_point *plot, int error[2]);
 /*map*/
-int				get_map_height(char *file, int *row);
 int				parse_map(char *file, t_fdf *fdf);
 void			get_values(char **split_line, t_fdf *fdf, int line_count);
 void			read_map(int fd, t_fdf *fdf);
 int				fill_matrix(t_fdf *fdf, int y, int x);
+
+/*parse*/
+int				get_map_height(char *file, int *row);
+char			**get_width(int *i, char **line, t_fdf *fdf);
 
 /*free*/
 int				free_fdf(t_fdf *fdf);
@@ -138,8 +142,9 @@ void			rotate(int key, t_fdf *fdf);
 
 /*errors*/
 void			error_handler(int err);
-int				check_fd(char *file);
+int				check_fd(char *file, t_fdf *fdf);
 char			*handle_color(char *color);
+void			clean_gnl(char *line, int fd);
 
 /*menu*/
 void			set_menu(t_fdf *fdf);

@@ -6,7 +6,7 @@
 /*   By: dkoca <dkoca@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:53:24 by dkoca             #+#    #+#             */
-/*   Updated: 2024/03/18 00:08:28 by dkoca            ###   ########.fr       */
+/*   Updated: 2024/03/18 19:51:24 by dkoca            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ int	main(int ac, char **av)
 	fdf = ft_calloc(1, sizeof(t_fdf));
 	if (!fdf)
 		(error_handler(INIT_ERROR), close_mlx(fdf));
-	if (check_fd(av[1]) == -1)
+	if (check_fd(av[1], fdf) == -1)
 		(error_handler(MAP_ERROR), close_mlx(fdf));
-	parse_map(av[1], fdf);
+	parse_map(fdf->path, fdf);
 	fdf_init(fdf);
 	call_hooks(fdf);
 	mlx_loop(fdf->mlx_ptr);
