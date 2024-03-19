@@ -6,7 +6,7 @@
 /*   By: dkoca <dkoca@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 00:42:53 by dkoca             #+#    #+#             */
-/*   Updated: 2024/03/19 00:15:46 by dkoca            ###   ########.fr       */
+/*   Updated: 2024/03/19 17:56:02 by dkoca            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <fcntl.h>
 # include <math.h>
 # include <mlx.h>
-# include <stdio.h>
 # include <stdlib.h>
 
 typedef struct s_camera
