@@ -1,7 +1,3 @@
-<img src="map png/42map.png" alt="Alt text" height="200">
-<img src="map png/monalisamap.png" alt="Alt text" height="200">
-<img src="map png/marsmap.png" alt="Alt text" height="200">
-<img src="map png/juiamap.png" alt="Alt text" height="200">
 
 <h1 align="center">
 	Fil de Fer
@@ -13,4 +9,11 @@
   and renders the 3D map into the 2D screen as a wireframe model.
   You can rotate, zoom in/out, and move the model in the window.
   The project uses the minilibx-linux library created by the 42 Network.</i></b><br>
+</p>
+
+<p align="center">
+<img src="map png/42map.png" alt="Alt text" height="400">
+<img src="map png/monalisamap.png" alt="Alt text" height="400">
+<img src="map png/marsmap.png" alt="Alt text" height="400">
+<img src="map png/juiamap.png" alt="Alt text" height="400">
 </p>
