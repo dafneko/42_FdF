@@ -17,3 +17,42 @@
 <img src="map png/marsmap.png" height="400">
 <img src="map png/juiamap.png" height="400">
 </p>
+
+## Installation
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/dafneko/42_FdF.git
+    cd 42_FdF
+    ```
+2. Navigate to the project repository:
+    ```sh
+    cd 42_FdF
+    ```
+3. Compile using make:
+   ```sh
+   make
+   ```
+## Usage
+To run the program, use the following command:
+```sh
+./fdf map_file
+```
+Replace map_file with any map file located in the test_maps directory. For example:
+./fdf 42.fdf
+or
+./fdf monalisa_colored.fdf
+
+## Controles
+
+|---|---|
+|`Mouse (Right Clicked + Hold)`| Move around|
+|`Mouse Scroll`| Zoom In/Out|
+|`W / S`| X axis Rotation|
+|`A / D`| Y axis Rotation|
+|`Q / D`| Z axis Rotation|
+|`Tab`| Rotation around two axis simultaneously|
+|`I`| ISOMETRIC view |
+|`P`| PARALEL view |
+|`ESC`| Close window|
+
+
