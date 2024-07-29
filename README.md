@@ -42,9 +42,7 @@ Replace map_file with any map file located in the test_maps directory. For examp
 or
 ./fdf monalisa_colored.fdf
 
-## Controles
-
-## Controls
+# Controls
 
 ### Keyboard
 | Key              | Action                             |
