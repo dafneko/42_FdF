@@ -49,12 +49,12 @@ or
 ### Keyboard
 | Key              | Action                             |
 |------------------|------------------------------------|
-| `W`              | Move Up                            |
-| `A`              | Move Left                          |
-| `S`              | Move Down                          |
-| `D`              | Move Right                         |
-| `Q`              | Rotate Counter-clockwise           |
-| `E`              | Rotate Clockwise                   |
+| `W`              | X axis Rotation                    |
+| `S`              | X axis Rotation                    |
+| `A`              | Y axis Rotation                    |
+| `D`              | Y axis Rotation                    |
+| `Q`              | Z axis Rotation                    |
+| `E`              | Z axis Rotation                    |
 | `+`              | Zoom In                            |
 | `-`              | Zoom Out                           |
 | `ESC`            | Exit Program                       |
@@ -62,8 +62,8 @@ or
 ### Mouse
 | Button           | Action                             |
 |------------------|------------------------------------|
-| `Left Click`     | Rotate                            |
-| `Scroll Up`      | Zoom In                            |
-| `Scroll Down`    | Zoom Out                           |
+| `Right Click`    | Hold and move around               |
+| `Scroll Up`      | Zoom Out                           |
+| `Scroll Down`    | Zoom In                            |
 
 
