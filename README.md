@@ -12,10 +12,10 @@
 </p>
 
 <p align="center">
-<img src="map png/42map.png" height="400">
-<img src="map png/monalisamap.png" height="400">
-<img src="map png/marsmap.png" height="400">
-<img src="map png/juiamap.png" height="400">
+<img src="map_png/42map.png" height="400">
+<img src="map_png/monalisamap.png" height="400">
+<img src="map_png/marsmap.png" height="400">
+<img src="map_png/juiamap.png" height="400">
 </p>
 
 ## Installation
