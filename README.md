@@ -44,15 +44,26 @@ or
 
 ## Controles
 
-|---|---|
-|`Mouse (Right Clicked + Hold)`| Move around|
-|`Mouse Scroll`| Zoom In/Out|
-|`W / S`| X axis Rotation|
-|`A / D`| Y axis Rotation|
-|`Q / D`| Z axis Rotation|
-|`Tab`| Rotation around two axis simultaneously|
-|`I`| ISOMETRIC view |
-|`P`| PARALEL view |
-|`ESC`| Close window|
+## Controls
+
+### Keyboard
+| Key              | Action                             |
+|------------------|------------------------------------|
+| `W`              | Move Up                            |
+| `A`              | Move Left                          |
+| `S`              | Move Down                          |
+| `D`              | Move Right                         |
+| `Q`              | Rotate Counter-clockwise           |
+| `E`              | Rotate Clockwise                   |
+| `+`              | Zoom In                            |
+| `-`              | Zoom Out                           |
+| `ESC`            | Exit Program                       |
+
+### Mouse
+| Button           | Action                             |
+|------------------|------------------------------------|
+| `Left Click`     | Rotate                            |
+| `Scroll Up`      | Zoom In                            |
+| `Scroll Down`    | Zoom Out                           |
 
 
